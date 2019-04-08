@@ -1,6 +1,6 @@
 <template>
     <transition :name="right?'scale-up-br':'scale-up-bl'">
-        <div class="msg" v-if="show" :class="{right: right,end: end,first: first}">
+        <div class="msg" v-if="show" :class="{right: right,end: end,first: first,type: type}">
             {{message}}
         </div>
     </transition>
@@ -14,6 +14,7 @@
             first: Boolean, //是否第一个
             right: Boolean, // 是否右侧显示
             end: Boolean, // 是否最后一个
+            type: Boolean, //用以区分消息类型 1：消息 2：答案 3:落地页
         },
         data() {
             return {show: false};

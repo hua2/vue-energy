@@ -13,6 +13,7 @@
             return {
                 results: [{
                     id: 21,
+                    type:3,
                     images: [{
                         img: "./public/assets/light.png",
                         choose: true
@@ -20,30 +21,35 @@
 
                 },{
                     id: 22,
+                    type:3,
                     images: [{
                         img: "./public/assets/gas.png",
                         choose: true
                     }]
                 },{
                     id: 23,
+                    type:3,
                     images: [{
                         img: "./public/assets/coal.png",
                         choose: true
                     }]
                 },{
                     id: 24,
+                    type:3,
                     images: [{
                         img: "./public/assets/electricity.png",
                         choose: true
                     }]
                 },{
                     id: 25,
+                    type:3,
                     images: [{
                         img: "./public/assets/oil.png",
                         choose: true
                     }]
                 },{
                     id: 26,
+                    type:3,
                     images: [{
                         img: "./public/assets/wind.png",
                         choose: true

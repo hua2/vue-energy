@@ -1,7 +1,7 @@
 <template>
     <div id="chat-list">
         <ChatMessage v-for="(m, index)  in messages" :key="index" :message="m.msg" :right="m.right" :first="m.first"
-                     :end="m.end"></ChatMessage>
+                     :end="m.end" :type="m.type"></ChatMessage>
     </div>
 </template>
 
@@ -16,6 +16,7 @@
                 messages: [],
                 questions: [{
                     id: 1,
+                    type:1,
                     messages: [{
                         msg: "嗨️",
                         first: true
@@ -31,13 +32,16 @@
                     }], // 消息
                     answers: [{
                         id: 11,
+                        type:2,
                         content: "了解一下",
                     }, {
                         id: 12,
+                        type:2,
                         content: "直接答题",
                     }], //答案
                 }, {
                     id: 2,
+                    type:1,
                     messages: [{
                         msg: "角马能源",
                         first: true
@@ -57,10 +61,12 @@
                     }], // 消息
                     answers: [{
                         id: 12,
+                        type:2,
                         content: "直接答题",
                     }], //答案
                 }, {
                     id: 3,
+                    type:1,
                     messages: [{
                         msg: "ok",
                         first: true
@@ -76,10 +82,12 @@
                     }], // 消息
                     answers: [{
                         id: 13,
+                        type:2,
                         content: "好的，我明白了",
                     }], //答案
                 },{
                     id: 4,
+                    type:1,
                     messages: [{
                         msg: "下面有两面镜子",
                         first: true
@@ -88,14 +96,17 @@
                         end: true
                     }], // 消息
                     answers: [{
+                        type:2,
                         id: 14,
                         content: "日出",
                     },{
                         id: 15,
+                        type:2,
                         content: "日落",
                     }], //答案
                 },{
                     id: 5,
+                    type:1,
                     messages: [{
                         msg: "日出时分",
                         first: true
@@ -105,6 +116,7 @@
                     }]
                 },{
                     id: 5,
+                    type:1,
                     messages: [{
                         msg: "日落时分",
                         first: true
