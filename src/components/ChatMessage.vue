@@ -8,7 +8,7 @@
                     {{message}}
                 </div>
                 <div v-else-if="type === 3">
-                    <img :src="message" @:click="floorPage()">
+                    <img :src="message" @click="floorPage">
                 </div>
                 <div v-else>
                     {{message}}
@@ -37,7 +37,8 @@
         },
         methods: {
             floorPage: function () {
-                this.$bus.$emit("page");
+                console.log("1111111111111111111111");
+                this.$bus.$emit("page", this.message);
             }
         }
     }
