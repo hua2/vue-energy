@@ -1,18 +1,10 @@
 <template>
     <transition :name="right?'scale-up-br':'scale-up-bl'">
-        <div class="msg" v-if="show" :class="{right: right,end: end,first: first}">
-            <div v-if="type === 1">
-                {{message}}
-            </div>
-                <div v-else-if="type === 2">
-                    {{message}}
-                </div>
-                <div v-else-if="type === 3">
-                    <img :src="message" @click="floorPage">
-                </div>
-                <div v-else>
-                    {{message}}
-            </div>
+        <div class="msg" v-if="show && type === 1" :class="{right: right,end: end,first: first}">
+            {{message}}
+        </div>
+        <div v-if="show && type === 2" class="msg msg-img">
+            <img :src="'./assets/'+ message +'.png'" @click="floorPage">
         </div>
     </transition>
 
@@ -25,19 +17,31 @@
             first: Boolean, //是否第一个
             right: Boolean, // 是否右侧显示
             end: Boolean, // 是否最后一个
-            type: Number, //用以区分消息类型 1：消息 2：答案 3:落地页
+            type: Number, //用以区分消息类型 1：消息 2：落地页
         },
         data() {
-            return {show: false};
+            return {
+                show: false,
+                setTimeOutToShowFloorPageId:undefined
+            };
         },
         created() {
             setTimeout(() => {
                 this.show = true;
             });
+            if (this.type === 2) {
+                this.setTimeOutToShowFloorPageId = setTimeout(() => {
+                    this.floorPage();
+                }, 6000)
+            }
+
         },
         methods: {
             floorPage: function () {
-                console.log("1111111111111111111111");
+                //清除倒计时器
+                if(this.setTimeOutToShowFloorPageId){
+                    clearTimeout(this.setTimeOutToShowFloorPageId);
+                }
                 this.$bus.$emit("page", this.message);
             }
         }
@@ -140,6 +144,11 @@
 
     }
 
+    .msg-img {
+        height: 3.8rem;
+        padding: 0.3rem 0.1rem 0 0;
+    }
+
     .msg.right {
         margin: 0.1rem 0.1rem 0.1rem auto;
         background-color: #ffa3fe;
@@ -160,7 +169,8 @@
         border-right: 0.2rem solid #fff;
         border-radius: 0.05rem 0.5rem 0.5rem 0.5rem;
     }
-    .msg img{
+
+    .msg img {
         width: 100px;
     }
 </style>
