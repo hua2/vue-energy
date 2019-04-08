@@ -1,7 +1,18 @@
 <template>
     <transition :name="right?'scale-up-br':'scale-up-bl'">
-        <div class="msg" v-if="show" :class="{right: right,end: end,first: first,type: type}">
-            {{message}}
+        <div class="msg" v-if="show" :class="{right: right,end: end,first: first}">
+            <div v-if="type === 1">
+                {{message}}
+            </div>
+                <div v-else-if="type === 2">
+                    {{message}}
+                </div>
+                <div v-else-if="type === 3">
+                    <img :src="message" @:click="floorPage()">
+                </div>
+                <div v-else>
+                    {{message}}
+            </div>
         </div>
     </transition>
 
@@ -14,7 +25,7 @@
             first: Boolean, //是否第一个
             right: Boolean, // 是否右侧显示
             end: Boolean, // 是否最后一个
-            type: Boolean, //用以区分消息类型 1：消息 2：答案 3:落地页
+            type: Number, //用以区分消息类型 1：消息 2：答案 3:落地页
         },
         data() {
             return {show: false};
@@ -23,6 +34,11 @@
             setTimeout(() => {
                 this.show = true;
             });
+        },
+        methods: {
+            floorPage: function () {
+                this.$bus.$emit("page");
+            }
         }
     }
 </script>
@@ -142,5 +158,8 @@
         border-left: 0.2rem solid #fff;
         border-right: 0.2rem solid #fff;
         border-radius: 0.05rem 0.5rem 0.5rem 0.5rem;
+    }
+    .msg img{
+        width: 100px;
     }
 </style>

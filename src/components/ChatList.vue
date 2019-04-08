@@ -16,18 +16,22 @@
                 messages: [],
                 questions: [{
                     id: 1,
-                    type:1,
                     messages: [{
                         msg: "嗨️",
+                        type:1,
                         first: true
                     }, {
                         msg: "欢迎来寻找失去的东西",
+                        type:1,
                     }, {
                         msg: "这是真实测试",
+                        type:1,
                     }, {
                         msg: "开始测试之前",
+                        type:1,
                     }, {
                         msg: "要不要先了解一下角马能源？",
+                        type:1,
                         end: true
                     }], // 消息
                     answers: [{
@@ -41,22 +45,28 @@
                     }], //答案
                 }, {
                     id: 2,
-                    type:1,
                     messages: [{
                         msg: "角马能源",
+                        type:1,
                         first: true
                     },{
                         msg: "是中国领先的能源和环保产业科技服务公司",
+                        type:1,
                     },{
                         msg: "我们旨在赋能企业",
+                        type:1,
                     },{
                         msg: "通过供应链优化与管理",
+                        type:1,
                     },{
                         msg: "大数据应用、物联网等产品和服务",
+                        type:1,
                     },{
                         msg: "为能源和环保企业降低经营成本",
+                        type:1,
                     }, {
                         msg: "提高生产效率",
+                        type:1,
                         end: true
                     }], // 消息
                     answers: [{
@@ -66,18 +76,22 @@
                     }], //答案
                 }, {
                     id: 3,
-                    type:1,
                     messages: [{
                         msg: "ok",
+                        type:1,
                         first: true
                     }, {
                         msg: "1+1=?",
+                        type:1,
                     }, {
                         msg: "=2",
+                        type:1,
                     }, {
                         msg: "没猜对吧",
+                        type:1,
                     }, {
                         msg: "懂规则了吗？",
+                        type:1,
                         end: true
                     }], // 消息
                     answers: [{
@@ -87,12 +101,13 @@
                     }], //答案
                 },{
                     id: 4,
-                    type:1,
                     messages: [{
                         msg: "下面有两面镜子",
+                        type:1,
                         first: true
                     },{
                         msg: "你更喜欢哪一个？",
+                        type:1,
                         end: true
                     }], // 消息
                     answers: [{
@@ -106,22 +121,28 @@
                     }], //答案
                 },{
                     id: 5,
-                    type:1,
                     messages: [{
                         msg: "日出时分",
+                        type:1,
                         first: true
                     },{
                         msg: "总是充满希望",
+                        type:1,
                         end: true
                     }]
                 },{
                     id: 5,
-                    type:1,
                     messages: [{
                         msg: "日落时分",
+                        type:1,
                         first: true
                     },{
                         msg: "总是",
+                        type:1,
+                        end: true
+                    },{
+                        msg: "./assets/oil.png",
+                        type:3,
                         end: true
                     }]
                 }],
@@ -131,7 +152,7 @@
         created() {
             // 开始第一个问题
             this.initQuestionMessages(0);
-            this.$bus.$on("answer", (res) => {
+            this.$bus.$on("answer",(res) => {
                 // 添加回答
                 let message = {
                     msg: res.content,
