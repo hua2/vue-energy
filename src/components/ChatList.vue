@@ -11,7 +11,7 @@
     export default {
         name: "ChatList",
         components: {ChatMessage},
-        data() {
+            data() {
             return {
                 messages: [],
                 questions: [{
@@ -25,9 +25,6 @@
                         msg: "这是真实测试",
                     }, {
                         msg: "开始测试之前",
-                    }, {
-                        msg: "./assets/oil.png",
-                        // type: 2
                     }, {
                         msg: "要不要先了解一下角马能源？",
                         end: true
@@ -115,7 +112,8 @@
                         msg: "总是",
                         end: true
                     }, {
-                        msg: "./assets/oil.png",
+                        msg: "light",
+                        type: 2,
                         end: true
                     }]
                 }],
@@ -134,9 +132,9 @@
                 this.messages.push(message);
                 this.scrollToBottom();
                 if (res.id === 11) {
-                    let image ={
-                        msg:"oil",
-                        type:2
+                    let image = {
+                        msg: "oil",
+                        type: 2
                     };
                     this.messages.push(image);
                     this.initQuestionMessages(1);

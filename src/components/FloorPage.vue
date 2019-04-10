@@ -21,7 +21,10 @@
                 that.show = true;
                 that.img = res;
             })
-        }
+        },
+        beforeDestroy() {
+            this.$bus.$off("page");
+        },
     }
 </script>
 
